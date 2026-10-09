@@ -75,7 +75,7 @@ Tiers: **M1 = tier 1** (complete app, Milestone A), **M2 = tier 2**, **M3 = tier
   - Done when: gates pass; validator confirms animations play once and are off under reduced motion.
   - Commit: `feat(lunch): add chopstick timer, ratings, motion and confetti`
 
-- [ ] **T10** · validate · Full-day dress rehearsal and docs · UI
+- [x] **T10** · validate · Full-day dress rehearsal and docs · UI
   - ui-validator walks the whole day in preview mode: every stage opened and completed, locked cards leak no titles at any simulated time, +15 perc moves countdowns and hints together, Következő megnyitása opens exactly one, offline reload (`npm run preview`), Safari-mode shows only install gate. Implementer fixes findings.
   - Update `docs/deploy.md` with the plan's test checklist (iPhone items as manual) and the "on her phone" checklist.
   - Commit: `docs: add rehearsal results and test checklist`

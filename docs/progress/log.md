@@ -68,3 +68,10 @@ Format:
 - Chopstick timer start is component state: resets if she leaves the screen mid-timer.
 - HUMAN REVIEW: implementer LUNCH copy ("Indítás", "Letelt az idő.", "Hány falat ment át?", "Mit ettél? Adj neki szíveket.", "Még egy falat", "Eddig ez nyer:"); unlock animation + petal look on real iPhone.
 - Note: admin `shiftBy` skips unlock animation (T02 decision).
+
+## 2026-10-10 · T10 · Full-day dress rehearsal and docs · done
+- Validator walked whole day (dev + prod preview): pass, no majors. Offline gate reload, SW precache incl. fonts, manifest OK.
+- deploy.md: test checklist + "on her phone" checklist added.
+- follow-ups (minor): admin Előnézet picker defaults to real clock; hint rows lack space between label and text in innerText; persist has no `migrate`.
+- NEEDS iPhone: camera, share sheet to Photos, standalone offline, force-quit persistence, safe areas, motion.
+- HUMAN REVIEW (open): all `TODO: Dávid` messages + finale letter, admin PIN `0000`, finale time 17:30, kart-rule clothing lines, Víztorony facts, implementer-written Hungarian copy (see earlier entries), `kart-sisak` camera facing.
