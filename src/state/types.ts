@@ -21,6 +21,7 @@ export interface AppState {
   kart: {
     predictedLap?: number
     predictedWinner?: 'her' | 'david'
+    locked?: boolean // "Rajt" pressed: predictions are final
     herLap?: number
     davidLap?: number
   }

@@ -1,5 +1,5 @@
-import { Reveal } from './Reveal'
+import { HintGuess } from '../components/challenges/HintGuess'
 
 export function Drive1() {
-  return <Reveal id="drive1" />
+  return <HintGuess drive="drive1" />
 }

@@ -46,3 +46,9 @@ Format:
 - follow-ups (minor): selected-tile style (blush/wine/heart) never visible because reveal replaces tiles at once; Kész/Kihagyom shown during quiz (nothing blocks her, kept).
 - HUMAN REVIEW: kart-rule clothing lines in prep reveals still unverified.
 - M1 complete.
+
+## 2026-10-09 · T06 · Drive hints, trivia, kart · done
+- `HintGuess`, `Trivia`, `KartTips`/`KartResult`, pure `lib/{hints,kart,trivia}.ts`. New `kart.locked` flag persists "Rajt". Validator: pass.
+- Guess rule `tries.length < openHints`; `solvedAtHint` = hints open at correct guess.
+- HUMAN REVIEW: implementer-written copy (DRIVE_UI, TRIVIA_UI, extra KART strings, "Hamarosan itt a fotózás."); Víztorony facts (1912, Víztartály).
+- follow-ups (minor): drive1 shows two near-duplicate "wait" lines after wrong guess; stale "Nem talált" stays when next hint opens; kart result has redundant "Eredmény"/"Dobogó" headings; petal confetti stub until T09.

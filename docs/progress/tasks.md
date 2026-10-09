@@ -47,7 +47,7 @@ Tiers: **M1 = tier 1** (complete app, Milestone A), **M2 = tier 2**, **M3 = tier
 
 ## M2 · Tier 2: the challenges
 
-- [ ] **T06** · ui · Drive hints, trivia, kart (phases 7 + 8) · UI
+- [x] **T06** · ui · Drive hints, trivia, kart (phases 7 + 8) · UI
   - `HintGuess` shared component for `drive1` ("Hová megyünk?", six tiles) and `drive2` ("Mi lesz az utolsó állomás?", six tiles): hints open at offsets from the stage's effective time (move with shift), one guess per hint, wrong → "Nem talált. Várd meg a következő nyomot.", correct → reveal + `solvedAtHint`. If never solved, answer shows when the next stage (`siofok` / `kart`) opens. City not named in `drive2` until `kart` opens.
   - `Trivia` for `siofok` (two questions; wrong answer shows the right one; stored in `trivia`). Photo cards render as plain placeholders until M3.
   - `kart`: Tippek (lap seconds, winner Én/Dávid; "Rajt" locks both), Eredmény (both best laps, podium with winner, predicted vs real lap, petal confetti may be stubbed until M3). Pure helpers for result/podium in `src/lib/` with tests.

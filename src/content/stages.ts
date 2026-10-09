@@ -213,6 +213,20 @@ export const DRIVES: Record<DriveId, DriveDef> = {
   },
 }
 
+/** Stage whose opening reveals the drive answer if she never solved it. */
+export const DRIVE_NEXT_STAGE: Record<DriveId, StageId> = { drive1: 'siofok', drive2: 'kart' }
+
+// HUMAN REVIEW: implementer-written UI copy, not from the plan.
+export const DRIVE_UI = {
+  hintsTitle: 'Nyomok',
+  hintLabel: 'Nyom',
+  noHint: 'Az első nyom hamarosan érkezik.',
+  noMoreGuesses: 'Most nincs több tipp. A válasz később kiderül.',
+  waitNext: 'Több tipp most nincs. Várd meg a következő nyomot.',
+  solved: 'Eltaláltad!',
+  answerLabel: 'A válasz',
+} as const
+
 // ---------- siofok ----------
 
 export interface PhotoTaskDef {
@@ -256,6 +270,15 @@ export const TRIVIA: readonly TriviaQuestion[] = [
   },
 ]
 
+// HUMAN REVIEW: implementer-written UI copy, not from the plan.
+export const TRIVIA_UI = {
+  title: 'Kvíz',
+  correct: 'Pontosan.',
+  wrong: 'A helyes válasz:',
+  photosTitle: 'Fotófeladatok',
+  photoSoon: 'Hamarosan itt a fotózás.',
+} as const
+
 // ---------- lunch ----------
 
 export const LUNCH = {
@@ -288,6 +311,27 @@ export const KART = {
   ],
   startLabel: 'Rajt',
   resultTitle: 'Eredmény',
+  // HUMAN REVIEW: implementer-written UI copy, not from the plan.
+  lapUnit: 'mp',
+  lapPlaceholder: 'pl. 62,5',
+  locked: 'A tippjeid lezárva. Jó versenyt!',
+  yourTip: 'Tipp',
+  tipLapLabel: 'Köröd',
+  tipWinnerLabel: 'Gyorsabb',
+  noTip: 'nincs tipp',
+  herLapLabel: 'Te, legjobb kör (mp)',
+  davidLapLabel: 'Dávid, legjobb kör (mp)',
+  showResult: 'Eredmény megmutatása',
+  podiumTitle: 'Dobogó',
+  you: 'Te',
+  david: 'Dávid',
+  winnerLine: 'A győztes:',
+  tieLine: 'Döntetlen',
+  predicted: 'Tippelt kör',
+  real: 'Valós kör',
+  diff: 'Eltérés',
+  winnerHit: 'A győztest eltaláltad.',
+  winnerMiss: 'A győztest most nem találtad el.',
   photo: { id: 'kart-sisak', prompt: 'Sisakos közös kép.', facing: 'user' } as PhotoTaskDef,
 } as const
 
