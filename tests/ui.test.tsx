@@ -1,9 +1,9 @@
-import { fireEvent, render, screen } from '@testing-library/react'
+import { act, fireEvent, render, screen } from '@testing-library/react'
 import { App } from '../src/App'
 import { EnvelopeCard } from '../src/components/ui/EnvelopeCard'
 import { Stamp } from '../src/components/ui/Stamp'
 import { InstallGate } from '../src/screens/InstallGate'
-import { STAGES, INSTALL_GATE } from '../src/content/stages'
+import { PREP_QUESTIONS, STAGES, INSTALL_GATE } from '../src/content/stages'
 import { initialState, useStore } from '../src/state/store'
 
 function reset(simulatedNow: string) {
@@ -59,6 +59,12 @@ describe('Timeline', () => {
     reset('2026-10-10T08:05:00+02:00')
     render(<App />)
     fireEvent.click(screen.getByRole('button', { name: /Felkészülés/ }))
+    expect(screen.queryByRole('button', { name: 'Kész' })).not.toBeInTheDocument()
+    act(() => {
+      useStore.setState({
+        prep: Object.fromEntries(PREP_QUESTIONS.map((q) => [q.id, q.options[0]!])),
+      })
+    })
     fireEvent.click(screen.getByRole('button', { name: 'Kész' }))
     expect(useStore.getState().stamps.prep).toBeTruthy()
     expect(screen.getByRole('img', { name: 'Megszerzett bélyeg' })).toBeInTheDocument()

@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react'
-import { STAGES, TIMELINE } from '../content/stages'
+import { DRIVE_NEXT_STAGE, STAGES, TIMELINE } from '../content/stages'
 import { StageFrame } from '../components/ui/StageFrame'
 import { petals } from '../lib/confetti'
+import { stageReady } from '../lib/stageReady'
 import { useNow } from '../hooks/useNow'
 import { useUnlockContext } from '../hooks/useUnlockContext'
 import { STAGE_COMPONENTS } from '../stages'
@@ -17,6 +18,10 @@ export function StageScreen({ id }: { id: StageId }) {
   const stamped = useStore((s) => Boolean(s.stamps[id]))
   const { navigate, stamp, markOpened } = useStore.getState()
   const [justStamped, setJustStamped] = useState(false)
+  const ready = useStore((s) => {
+    const next = id === 'drive1' || id === 'drive2' ? DRIVE_NEXT_STAGE[id] : undefined
+    return stageReady(id, s, next ? isOpen(next, ctx, now) : false)
+  })
   const open = isOpen(id, ctx, now)
 
   useEffect(() => {
@@ -34,6 +39,7 @@ export function StageScreen({ id }: { id: StageId }) {
       title={stage.title}
       message={stage.message}
       stamped={stamped}
+      ready={ready}
       justStamped={justStamped}
       backLabel={TIMELINE.backLabel}
       stampedLabel={TIMELINE.stampedLabel}

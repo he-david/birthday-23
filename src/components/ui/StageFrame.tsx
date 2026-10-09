@@ -9,6 +9,8 @@ export interface StageFrameProps {
   title: string
   message: string
   stamped: boolean
+  /** All tasks of the stage are done: only then "Kész" is offered. */
+  ready: boolean
   /** True right after "Kész" so the stamp animates in. */
   justStamped?: boolean
   backLabel: string
@@ -20,7 +22,7 @@ export interface StageFrameProps {
 
 /** Common frame of every open stage: back chevron, title, Dávid's message, content, Kész. */
 export function StageFrame(props: StageFrameProps) {
-  const { id, title, message, stamped, justStamped, backLabel, stampedLabel, children } = props
+  const { id, title, message, stamped, ready, justStamped, backLabel, stampedLabel, children } = props
   return (
     <Page>
       <header className="flex items-center gap-1">
@@ -56,7 +58,7 @@ export function StageFrame(props: StageFrameProps) {
       ) : null}
       <div className="mt-6 flex-1">{children}</div>
       <div className="mt-8 flex flex-col gap-3">
-        {stamped ? (
+        {!stamped && !ready ? null : stamped ? (
           <Button variant="secondary" onClick={props.onBack}>
             {backLabel}
           </Button>

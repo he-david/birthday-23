@@ -79,3 +79,7 @@ Format:
 ## 2026-10-10 · post-T10 · Remove message placeholder and skip button
 - User request: stage message block hidden while `message` is empty (`MESSAGE_PLACEHOLDER = ''`), finale letter section hidden while empty. "Kihagyom" removed from `StageFrame`; stages can only be finished with "Kész".
 - Overrides CLAUDE.md rule "every challenge skippable": user decision. Individual challenges (photos, quiz, hints) are still not gated, but a stage can no longer be left without a stamp via a skip button; she can still go back with the chevron.
+
+## 2026-10-10 · post-T10 · "Kész" only when stage is complete
+- New pure `lib/stageReady.ts` (+ tests). Kész shown only when: prep all 6 answered; drive solved or answer revealed (next stage open); siofok all 4 photos + both trivia; lunch ≥1 spin + chopstick count + one rated bite (≥1 heart); kart tips locked + both laps + helmet photo; finale always.
+- Consequence: a stage with a missing photo/answer can't be stamped (user decision, with skip removed). Not browser-verified.
