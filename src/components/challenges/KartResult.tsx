@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { KART } from '../../content/stages'
+import { petals } from '../../lib/confetti'
 import { formatLap, kartResult, parseLap, type Racer } from '../../lib/kart'
 import { useStore } from '../../state/store'
 import { Button } from '../ui/Button'
@@ -94,7 +95,10 @@ export function KartResult() {
           <Button
             disabled={herParsed === undefined || davidParsed === undefined}
             className="disabled:opacity-60"
-            onClick={() => setKart({ herLap: herParsed, davidLap: davidParsed })}
+            onClick={() => {
+              setKart({ herLap: herParsed, davidLap: davidParsed })
+              petals()
+            }}
           >
             {KART.showResult}
           </Button>

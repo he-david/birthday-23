@@ -83,6 +83,8 @@ export function Wheel() {
               {LUNCH.wheelSegments.map((label, i) => {
                 const mid = (i + 0.5) * seg
                 const lines = wrap(label)
+                // Radial labels read left to right: flip the ones on the left half.
+                const flip = mid > 180
                 return (
                   <g key={label}>
                     <path
@@ -92,14 +94,18 @@ export function Wheel() {
                       strokeWidth="1"
                     />
                     <text
-                      transform={`rotate(${mid} ${R} ${R})`}
+                      transform={`rotate(${flip ? mid + 90 : mid - 90} ${R} ${R})`}
                       className="fill-ink font-body"
-                      fontSize="6.5"
+                      fontSize="8.5"
                       fontWeight="700"
-                      textAnchor="middle"
+                      textAnchor={flip ? 'start' : 'end'}
                     >
                       {lines.map((line, k) => (
-                        <tspan key={line} x={R} y={R - 62 + k * 8}>
+                        <tspan
+                          key={line}
+                          x={flip ? R - 90 : R + 90}
+                          y={R + 3 + (k - (lines.length - 1) / 2) * 10}
+                        >
                           {line}
                         </tspan>
                       ))}

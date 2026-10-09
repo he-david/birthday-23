@@ -1,6 +1,7 @@
 import type { StageId } from '../../state/types'
 import { Countdown } from './Countdown'
 import { Stamp, StampSlot } from './Stamp'
+import { UnlockOverlay } from './UnlockOverlay'
 import { WaxSeal } from './WaxSeal'
 
 export interface LockedEnvelopeProps {
@@ -17,6 +18,9 @@ export interface OpenEnvelopeProps {
   stamped: boolean
   stampedLabel: string
   onOpen: () => void
+  /** Newly open and not seen yet: play the unlock animation once. */
+  fresh?: boolean
+  onUnlocked?: () => void
 }
 
 export type EnvelopeCardProps = LockedEnvelopeProps | OpenEnvelopeProps
@@ -66,6 +70,7 @@ export function EnvelopeCard(props: EnvelopeCardProps) {
       className="bg-paper-deep shadow-card rounded-card text-gold relative flex min-h-36 w-full items-end justify-between gap-3 overflow-hidden px-5 pt-14 pb-5 text-left touch-manipulation motion-safe:active:scale-[0.99] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-wine"
     >
       <Flap up />
+      {props.fresh && props.onUnlocked ? <UnlockOverlay onDone={props.onUnlocked} /> : null}
       <span className="text-wine font-display relative z-10 text-3xl leading-tight font-semibold">
         {props.title}
       </span>

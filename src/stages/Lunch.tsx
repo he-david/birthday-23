@@ -1,6 +1,13 @@
+import { Chopsticks } from '../components/challenges/Chopsticks'
+import { Ratings } from '../components/challenges/Ratings'
 import { Wheel } from '../components/challenges/Wheel'
 
-// Chopstick timer and ratings arrive with M3.
 export function Lunch() {
-  return <Wheel />
+  return (
+    <>
+      <Wheel />
+      <Chopsticks />
+      <Ratings />
+    </>
+  )
 }

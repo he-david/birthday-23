@@ -86,3 +86,46 @@ textarea {
     opacity: 1;
   }
 }
+
+/* Unlock: seal cracks (0-250 ms), flap lifts, cover fades; ~600 ms in total. */
+@theme {
+  --animate-unlock-cover: unlock-cover 600ms ease-out both;
+  --animate-unlock-flap: unlock-flap 450ms 150ms ease-in both;
+  --animate-unlock-seal-left: unlock-seal-left 450ms ease-out both;
+  --animate-unlock-seal-right: unlock-seal-right 450ms ease-out both;
+}
+
+@keyframes unlock-cover {
+  0%,
+  45% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes unlock-flap {
+  from {
+    transform: rotateX(0deg);
+    opacity: 1;
+  }
+  to {
+    transform: rotateX(-170deg);
+    opacity: 0;
+  }
+}
+
+@keyframes unlock-seal-left {
+  to {
+    transform: translate(-14px, 10px) rotate(-18deg);
+    opacity: 0;
+  }
+}
+
+@keyframes unlock-seal-right {
+  to {
+    transform: translate(14px, 10px) rotate(18deg);
+    opacity: 0;
+  }
+}

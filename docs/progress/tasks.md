@@ -69,7 +69,7 @@ Tiers: **M1 = tier 1** (complete app, Milestone A), **M2 = tier 2**, **M3 = tier
   - Done when: gates pass; photo appears as polaroid; persists after reload; collage generated (share/camera need a real phone: log as manual check).
   - Commit: `feat(siofok): add photo tasks, polaroids and finale collage`
 
-- [ ] **T09** · ui · Chopsticks, ratings, unlock animation, confetti, reduced motion (phase 12) · UI
+- [x] **T09** · ui · Chopsticks, ratings, unlock animation, confetti, reduced motion (phase 12) · UI
   - Lunch: chopstick 30 s timer (timestamp-based) + number input; ratings (name + 1–5 hearts, top-rated → "A nap falatja" in finale).
   - Motion: unlock animation (seal cracks, flap lifts ~600 ms, once per stage via `opened`), stamp press animation, `canvas-confetti` petals (rose, blush, gold) on stamp and podium. Everything `motion-safe:`; verify nothing animates with `prefers-reduced-motion`.
   - Done when: gates pass; validator confirms animations play once and are off under reduced motion.

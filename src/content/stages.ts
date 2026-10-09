@@ -319,6 +319,19 @@ export const LUNCH = {
   noSpinsLeft: 'Ennyi volt, a rulett döntött.',
   resultLabel: 'A rulett szerint',
   wheelAria: 'Sushi rulett',
+  timerStart: 'Indítás',
+  timerAgain: 'Újra',
+  timerRunning: 'Másodperc van hátra',
+  timerDone: 'Letelt az idő.',
+  timerAria: 'Visszaszámláló',
+  chopstickCountLabel: 'Hány falat ment át?',
+  chopstickUnit: 'falat',
+  ratingHint: 'Mit ettél? Adj neki szíveket.',
+  ratingNameLabel: 'Étel neve',
+  ratingNamePlaceholder: 'pl. lazacos maki',
+  ratingAdd: 'Még egy falat',
+  heartLabel: 'szív',
+  bestBiteLine: 'Eddig ez nyer:',
 } as const
 
 // ---------- kart ----------

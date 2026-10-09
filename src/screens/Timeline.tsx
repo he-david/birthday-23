@@ -11,6 +11,8 @@ export function Timeline() {
   const now = useNow()
   const ctx = useUnlockContext()
   const stamps = useStore((s) => s.stamps)
+  const opened = useStore((s) => s.opened)
+  const markOpened = useStore((s) => s.markOpened)
   const navigate = useStore((s) => s.navigate)
   const next = nextLockedStage(ctx, now)
 
@@ -33,6 +35,8 @@ export function Timeline() {
                 stamped={Boolean(stamps[stage.id])}
                 stampedLabel={TIMELINE.stampedLabel}
                 onOpen={() => navigate({ name: 'stage', id: stage.id })}
+                fresh={!opened.includes(stage.id)}
+                onUnlocked={() => markOpened(stage.id)}
               />
             ) : (
               <EnvelopeCard

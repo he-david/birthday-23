@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { STAGES, TIMELINE } from '../content/stages'
 import { StageFrame } from '../components/ui/StageFrame'
+import { petals } from '../lib/confetti'
 import { useNow } from '../hooks/useNow'
 import { useUnlockContext } from '../hooks/useUnlockContext'
 import { STAGE_COMPONENTS } from '../stages'
@@ -40,6 +41,7 @@ export function StageScreen({ id }: { id: StageId }) {
       onDone={() => {
         stamp(id, new Date(now).toISOString())
         setJustStamped(true)
+        petals()
       }}
       onSkip={() => {
         skip(id)

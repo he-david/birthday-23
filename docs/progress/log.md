@@ -62,3 +62,9 @@ Format:
 - `lib/photos.ts` (downscale, IDB by task id), `lib/collage.ts` (pure layout + canvas + share/download), `PhotoTask`, `Collage`, `usePhotoUrl`. Validator: pass (download fallback only).
 - HUMAN REVIEW: implementer copy ("Fotózok", "Újra", "Fotók", captions Víztorony/Mi ketten/Virág/Élő szobor/Sisakosan, collage heading/date). `kart-sisak` uses front camera (`facing: user`); plan silent, change if wanted.
 - MANUAL iPhone: camera opens from installed PWA; share sheet saves collage to Photos; fonts in collage; photo orientation; 1600 px downscale not tested with a large image.
+
+## 2026-10-09 · T09 · Chopsticks, ratings, motion, confetti · done
+- `lib/{timer,ratings,confetti}.ts`, Chopsticks, Ratings, UnlockOverlay (once per stage via `opened`), petals on Kész and kart result. Validator: pass; reduced motion verified with Playwright (chrome-devtools can't emulate it).
+- Chopstick timer start is component state: resets if she leaves the screen mid-timer.
+- HUMAN REVIEW: implementer LUNCH copy ("Indítás", "Letelt az idő.", "Hány falat ment át?", "Mit ettél? Adj neki szíveket.", "Még egy falat", "Eddig ez nyer:"); unlock animation + petal look on real iPhone.
+- Note: admin `shiftBy` skips unlock animation (T02 decision).
