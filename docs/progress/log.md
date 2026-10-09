@@ -28,3 +28,9 @@ Format:
 - Decision: stages in `opened`/`forcedUnlocked` keep base time. Admin must call store `shiftBy(delta, nowMs)` (it first marks open stages as opened), not set shiftMinutes directly. Side effect: those skip unlock animation.
 - Forced stage keeps scheduled time for hint anchoring.
 - HUMAN REVIEW: admin PIN `0000`; all stage messages + finale letter `TODO: Dávid`; finale time 17:30 assumed; kart-rule clothing reveal lines (shoe/trouser/hair); Víztorony trivia facts (1912, Víztartály); WELCOME copy ("Szülinapi küldetés" / "Az első boríték") is implementer wording, not from plan.
+
+## 2026-10-09 · T03 · UI kit and shell · done
+- UI kit, Welcome/InstallGate/Timeline/StageScreen, stage stubs (`src/stages/*`), `StageFrame` owns title/message/Kész/Kihagyom. Validator: pass, spoiler hygiene clean.
+- tests/setup.ts shims localStorage (Node 25 breaks jsdom's).
+- HUMAN REVIEW: implementer-written copy "Szülinapi küldetés", "Az első boríték", locked-card label "Lezárt boríték" (visible on locked cards).
+- follow-ups (minor): confirm safe-area padding includes env(); unlock animation + confetti in T09; admin view falls back to timeline until T04.

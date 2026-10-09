@@ -28,7 +28,7 @@ Tiers: **M1 = tier 1** (complete app, Milestone A), **M2 = tier 2**, **M3 = tier
   - Done when: gates pass; tests cover time unlock, shift, forced unlock, simulated clock, hint offsets, countdown label.
   - Commit: `feat(state): add stage content, store, clock and unlock logic`
 
-- [ ] **T03** · ui · UI kit and shell (phases 3 + 4) · UI
+- [x] **T03** · ui · UI kit and shell (phases 3 + 4) · UI
   - `src/components/ui/`: `EnvelopeCard` (locked/open), `WaxSeal`, `Stamp` (perforated mask, per-stage line icon, rotation), `Button` (primary/secondary), `Countdown`, `Polaroid` (static look; photo wiring later), `StageScreen` frame (back chevron, message block in `font-hand` on `paper-deep` with gold left rule, "Kész" earns the stamp, "Kihagyom" leaves without one). Layout wrapper `max-w-md mx-auto px-5 min-h-dvh` + safe-area.
   - Screens: `Welcome` (one countdown, nothing else, before `prep` opens), `InstallGate` (only install instructions when not standalone; off in DEV), `Timeline` (seven envelopes, locked = seal + "?" only, next card shows countdown, open = title + stamp slot), `StageScreen` routing by store view. `src/stages/*` stubs: every stage opens to its reveal, Dávid's message and a "Kész"/"Kihagyom" pair.
   - Locked cards render no stage title anywhere (also not `aria-label`).

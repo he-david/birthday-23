@@ -78,6 +78,18 @@ export const WELCOME = {
   countdownLabel: 'Az első boríték',
 } as const
 
+export const INSTALL_GATE = {
+  instructions: 'Koppints a Megosztás ikonra, majd válaszd: Főképernyőhöz adás.',
+} as const
+
+export const TIMELINE = {
+  heading: 'Szülinapi küldetés',
+  lockedHint: 'Lezárt boríték',
+  backLabel: 'Vissza',
+  stampedLabel: 'Megszerzett bélyeg',
+  openHint: 'Nyisd ki',
+} as const
+
 // ---------- prep ----------
 
 export interface PrepQuestion {
