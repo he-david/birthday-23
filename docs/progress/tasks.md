@@ -21,7 +21,7 @@ Tiers: **M1 = tier 1** (complete app, Milestone A), **M2 = tier 2**, **M3 = tier
   - Done when: gates pass; `npm run build` emits manifest + sw; validator on `npm run preview` confirms manifest, SW, fonts render ő/ű, palette.
   - Commit: `build(infra): scaffold vite react ts tailwind pwa project`
 
-- [ ] **T02** · state · Content, store, clock, unlock logic (phase 2)
+- [x] **T02** · state · Content, store, clock, unlock logic (phase 2)
   - `src/content/stages.ts`: typed; all seven stages (id, title, `unlockAt` ISO `+02:00`, `message` placeholder `TODO: Dávid`, reveal), prep questions + reveals + packing list + teaser, drive hint offsets and texts, drive tile lists, siófok photo tasks + trivia, lunch wheel segments / chopstick prompt, kart prompts, finale closing line, admin PIN placeholder (`0000`, flag HUMAN REVIEW). Copy Hungarian strings from the plan exactly.
   - `src/state/store.ts`: zustand + `persist` key `kuldetes-v1`, `AppState` exactly as in plan (`v: 1`) plus actions (view navigation in the store, open/stamp/skip stage, forced unlock, shift, simulatedNow, reset). `src/hooks/useNow.ts`: 15 s tick + `visibilitychange`, returns simulated time when set.
   - `src/state/unlock.ts` pure + Vitest: effective time with shift (only for not-yet-open stages), forced unlock, open check, next-locked stage, hint offsets (`drive1` +20/+45/+70, `drive2` 0/+15/+30) moving with shift, simulated clock, countdown label ("2 óra 14 perc múlva nyílik"), welcome state before `prep`.

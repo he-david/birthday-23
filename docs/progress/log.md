@@ -22,3 +22,9 @@ Format:
 - Vite 8 + React 19 + TS strict + Tailwind v4 + PWA (generateSW, autoUpdate); manifest + sw emitted, 39 precache entries incl. fonts. Icons from `public/seal.svg` via `npm run generate-pwa-assets`.
 - JSX via `oxc` automatic runtime; `@vitejs/plugin-react` not added (not allowed).
 - Task not flagged UI: validator not run. Follow-up: confirm ő/ű font rendering in Chrome during T03 validation.
+
+## 2026-10-09 · T02 · Content, store, clock, unlock logic · done
+- Content, zustand store (`kuldetes-v1`, view not persisted), pure `unlock.ts`, `useNow`; 24 unlock tests.
+- Decision: stages in `opened`/`forcedUnlocked` keep base time. Admin must call store `shiftBy(delta, nowMs)` (it first marks open stages as opened), not set shiftMinutes directly. Side effect: those skip unlock animation.
+- Forced stage keeps scheduled time for hint anchoring.
+- HUMAN REVIEW: admin PIN `0000`; all stage messages + finale letter `TODO: Dávid`; finale time 17:30 assumed; kart-rule clothing reveal lines (shoe/trouser/hair); Víztorony trivia facts (1912, Víztartály); WELCOME copy ("Szülinapi küldetés" / "Az első boríték") is implementer wording, not from plan.

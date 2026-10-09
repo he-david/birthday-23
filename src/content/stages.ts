@@ -1,0 +1,270 @@
+import type { DriveId, StageId } from '../state/types'
+
+/** Single place to edit all copy, times, options, answers and the admin PIN. */
+
+// HUMAN REVIEW: placeholder PIN, Dávid must choose the real one.
+export const ADMIN_PIN = '0000'
+
+export const MESSAGE_PLACEHOLDER = 'TODO: Dávid'
+
+export interface StageDef {
+  id: StageId
+  title: string
+  /** ISO with +02:00 (the day falls before the 25 Oct clock change). */
+  unlockAt: string
+  /** Dávid's message, shown at the top of the stage. */
+  message: string
+  /** What the stage reveals once open. */
+  reveal: string
+}
+
+export const STAGES: readonly StageDef[] = [
+  {
+    id: 'prep',
+    title: 'Felkészülés',
+    unlockAt: '2026-10-10T08:00:00+02:00',
+    message: MESSAGE_PLACEHOLDER,
+    reveal: 'Csomaglista és egy kis nyom',
+  },
+  {
+    id: 'drive1',
+    title: 'Úton',
+    unlockAt: '2026-10-10T10:00:00+02:00',
+    message: MESSAGE_PLACEHOLDER,
+    reveal: 'Semmi, csak nyomok az úton',
+  },
+  {
+    id: 'siofok',
+    title: 'Séta Siófokon',
+    unlockAt: '2026-10-10T11:30:00+02:00',
+    message: MESSAGE_PLACEHOLDER,
+    reveal: 'Víztorony és Rózsakert',
+  },
+  {
+    id: 'lunch',
+    title: 'Ebéd',
+    unlockAt: '2026-10-10T13:00:00+02:00',
+    message: MESSAGE_PLACEHOLDER,
+    reveal: 'Sushi',
+  },
+  {
+    id: 'drive2',
+    title: 'Újra úton',
+    unlockAt: '2026-10-10T14:30:00+02:00',
+    message: MESSAGE_PLACEHOLDER,
+    reveal: 'Semmi, csak nyomok az úton',
+  },
+  {
+    id: 'kart',
+    title: 'Gokart',
+    unlockAt: '2026-10-10T16:00:00+02:00',
+    message: MESSAGE_PLACEHOLDER,
+    reveal: 'Gokartpálya, egyedül és tandemben',
+  },
+  {
+    id: 'finale',
+    title: 'Levél',
+    // HUMAN REVIEW: 17:30 is assumed, check against the kart session length.
+    unlockAt: '2026-10-10T17:30:00+02:00',
+    message: MESSAGE_PLACEHOLDER,
+    reveal: 'Dávid levele és az összefoglaló',
+  },
+]
+
+export const STAGE_IDS: readonly StageId[] = STAGES.map((s) => s.id)
+
+export const WELCOME = {
+  heading: 'Szülinapi küldetés',
+  countdownLabel: 'Az első boríték',
+} as const
+
+// ---------- prep ----------
+
+export interface PrepQuestion {
+  id: string
+  question: string
+  options: readonly string[]
+  reveal: string
+}
+
+// HUMAN REVIEW: shoe, trouser and hair lines assume typical kart-track rules; confirm with the venue.
+export const PREP_QUESTIONS: readonly PrepQuestion[] = [
+  {
+    id: 'shoes',
+    question: 'Milyen cipőben indulnál neki a napnak?',
+    options: ['Magassarkú', 'Sportcipő', 'Balerina', 'Mezítláb'],
+    reveal: 'Ma zárt, lapos cipő kell. Bízz bennem.',
+  },
+  {
+    id: 'bottom',
+    question: 'Szoknya vagy nadrág?',
+    options: ['Szoknya', 'Nadrág', 'Ruha'],
+    reveal: 'Ma a nadrág nyer. Legyen kényelmes, amiben mozogni is tudsz.',
+  },
+  {
+    id: 'hair',
+    question: 'A hajad ma...',
+    options: ['Kiengedve', 'Copfban', 'Kontyban'],
+    reveal: 'Mindegyik gyönyörű, de egy hajgumit mindenképp tegyél a táskádba.',
+  },
+  {
+    id: 'cold',
+    question: 'Mennyire vagy fázós?',
+    options: ['Nagyon', 'Kicsit', 'Csak ha fúj a szél'],
+    reveal: 'Öltözz rétegesen, és hozz kabátot: lesz, ahol fúj a szél.',
+  },
+  {
+    id: 'appetite',
+    question: 'Mekkora étvággyal indulsz?',
+    options: ['Farkaséhesen', 'Közepesen', 'Csak csipegetek'],
+    reveal: 'Az ebédről gondoskodtam. Reggelire elég valami könnyű.',
+  },
+  {
+    id: 'ready',
+    question: 'Mikorra leszel kész?',
+    options: ['Már kész vagyok', 'Fél óra múlva', 'Még álmos vagyok'],
+    reveal: '10:00-kor indulunk. A többit bízd rám.',
+  },
+]
+
+export const PACKING = {
+  title: 'Csomaglista',
+  items: [
+    'zárt, lapos cipő',
+    'kényelmes nadrág',
+    'hajgumi',
+    'réteges felső és kabát',
+    'feltöltött telefon',
+  ],
+  teaser: 'Annyit elárulok: víz közelében leszünk.',
+} as const
+
+// ---------- drive stages ----------
+
+export interface DriveHint {
+  /** Minutes after the stage's effective unlock time. */
+  offsetMin: number
+  text: string
+}
+
+export interface DriveDef {
+  title: string
+  tiles: readonly string[]
+  answer: string
+  hints: readonly [DriveHint, DriveHint, DriveHint]
+  wrongGuess: string
+}
+
+export const DRIVES: Record<DriveId, DriveDef> = {
+  drive1: {
+    title: 'Hová megyünk?',
+    tiles: ['Balatonfüred', 'Siófok', 'Tihany', 'Velence', 'Keszthely', 'Balatonalmádi'],
+    answer: 'Siófok',
+    hints: [
+      { offsetMin: 20, text: 'Nagy víz partjára tartunk.' },
+      { offsetMin: 45, text: 'Egy operettkirály szülővárosa.' },
+      { offsetMin: 70, text: 'A főterén torony áll, amiben valaha víz volt.' },
+    ],
+    wrongGuess: 'Nem talált. Várd meg a következő nyomot.',
+  },
+  drive2: {
+    title: 'Mi lesz az utolsó állomás?',
+    tiles: ['Bowling', 'Gokart', 'Szabadulószoba', 'Falmászás', 'Korcsolya', 'Lézerharc'],
+    answer: 'Gokart',
+    hints: [
+      { offsetMin: 0, text: 'Gyors lesz.' },
+      { offsetMin: 15, text: 'Sisak kell hozzá.' },
+      { offsetMin: 30, text: 'A végén kockás zászló int.' },
+    ],
+    wrongGuess: 'Nem talált. Várd meg a következő nyomot.',
+  },
+}
+
+// ---------- siofok ----------
+
+export interface PhotoTaskDef {
+  id: string
+  prompt: string
+  /** Selfie tasks use the front camera. */
+  facing: 'user' | 'environment'
+}
+
+export const SIOFOK_PHOTOS: readonly PhotoTaskDef[] = [
+  { id: 'siofok-torony', prompt: 'Tartsd a tenyereden a Víztornyot.', facing: 'environment' },
+  {
+    id: 'siofok-szelfi',
+    prompt: 'Közös szelfi a kilátóból (vagy a torony előtt, ha zárva van).',
+    facing: 'user',
+  },
+  { id: 'siofok-virag', prompt: 'A legszebb virág, amit ma találsz.', facing: 'environment' },
+  { id: 'siofok-szobor', prompt: 'Dávid szobrot utánoz. Te vagy a fotós.', facing: 'environment' },
+]
+
+export interface TriviaQuestion {
+  id: string
+  question: string
+  options: readonly string[]
+  answer: string
+}
+
+// HUMAN REVIEW: verify the Víztorony facts against the town guides.
+export const TRIVIA: readonly TriviaQuestion[] = [
+  {
+    id: 'torony-ev',
+    question: 'Melyik évben épült a Víztorony?',
+    options: ['1892', '1912', '1932', '1952'],
+    answer: '1912',
+  },
+  {
+    id: 'kilato-hely',
+    question: 'Mi volt eredetileg a kilátó helyén?',
+    options: ['Harangok', 'Víztartály', 'Óraszerkezet', 'Tűzfigyelő'],
+    answer: 'Víztartály',
+  },
+]
+
+// ---------- lunch ----------
+
+export const LUNCH = {
+  wheelTitle: 'Sushi rulett',
+  maxSpins: 2,
+  wheelSegments: [
+    'Valami lazacos',
+    'Amit még sosem kóstoltál',
+    'Dávid választ neked',
+    'Te választasz Dávidnak',
+    'A legfurcsább nevű tekercs',
+    'Valami csípős',
+  ],
+  chopstickTitle: 'Pálcika-kihívás',
+  chopstickPrompt: 'Hány falatot tudsz pálcikával Dávid tányérjára átrakni 30 másodperc alatt?',
+  chopstickSeconds: 30,
+  ratingTitle: 'Értékelés',
+  bestBiteTitle: 'A nap falatja',
+} as const
+
+// ---------- kart ----------
+
+export const KART = {
+  tipsTitle: 'Tippek',
+  lapPrompt: 'Mennyi lesz a legjobb köröd?',
+  winnerPrompt: 'Ki lesz a gyorsabb?',
+  winnerOptions: [
+    { value: 'her', label: 'Én' },
+    { value: 'david', label: 'Dávid' },
+  ],
+  startLabel: 'Rajt',
+  resultTitle: 'Eredmény',
+  photo: { id: 'kart-sisak', prompt: 'Sisakos közös kép.', facing: 'user' } as PhotoTaskDef,
+} as const
+
+// ---------- finale ----------
+
+export const FINALE = {
+  stampsTitle: 'Bélyegek',
+  statsTitle: 'A nap számokban',
+  shareLabel: 'Mentés és megosztás',
+  // HUMAN REVIEW: Dávid's letter goes here.
+  letter: MESSAGE_PLACEHOLDER,
+  closingLine: 'Boldog szülinapi hétvégét!',
+} as const
