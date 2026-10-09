@@ -40,3 +40,9 @@ Format:
 - `clearAllPhotos` clears default idb-keyval store: T08 must use same store or update it.
 - Admin copy written by implementer (ADMIN block in stages.ts): review.
 - Minor: after "Minden törlése" app shows Welcome (correct when nothing open); admin lists locked titles (Dávid-only).
+
+## 2026-10-09 · T05 · Prep quiz and packing list · done
+- `stages/Prep.tsx`, reusable `OptionTile`, pure `lib/prep.ts`. Validator: pass. Step derived from persisted answers; reload mid-reveal skips that reveal.
+- follow-ups (minor): selected-tile style (blush/wine/heart) never visible because reveal replaces tiles at once; Kész/Kihagyom shown during quiz (nothing blocks her, kept).
+- HUMAN REVIEW: kart-rule clothing lines in prep reveals still unverified.
+- M1 complete.

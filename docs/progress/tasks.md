@@ -40,7 +40,7 @@ Tiers: **M1 = tier 1** (complete app, Milestone A), **M2 = tier 2**, **M3 = tier
   - Done when: gates pass; simulating any time opens the right stages; banner shows; +15 moves countdowns together.
   - Commit: `feat(admin): add pin-protected admin panel and preview mode`
 
-- [ ] **T05** · ui · Prep quiz and packing list (phase 6) · UI
+- [x] **T05** · ui · Prep quiz and packing list (phase 6) · UI
   - `prep` stage: six single-choice questions, one per screen, any answer advances and shows its reveal line, nothing scored; end screen "Csomaglista" + teaser; list stays readable from the timeline afterwards. Selected tile `bg-blush` + wine border + heart. Answers persisted in `prep`.
   - Done when: gates pass; six questions, reveals, list, stamp; state survives restart.
   - Commit: `feat(prep): add prep quiz and packing list`
