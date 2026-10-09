@@ -231,19 +231,37 @@ export const DRIVE_UI = {
 export interface PhotoTaskDef {
   id: string
   prompt: string
+  /** Short handwritten caption for the polaroid and collage. */
+  caption: string
   /** Selfie tasks use the front camera. */
   facing: 'user' | 'environment'
 }
 
 export const SIOFOK_PHOTOS: readonly PhotoTaskDef[] = [
-  { id: 'siofok-torony', prompt: 'Tartsd a tenyereden a Víztornyot.', facing: 'environment' },
+  {
+    id: 'siofok-torony',
+    prompt: 'Tartsd a tenyereden a Víztornyot.',
+    caption: 'Víztorony',
+    facing: 'environment',
+  },
   {
     id: 'siofok-szelfi',
     prompt: 'Közös szelfi a kilátóból (vagy a torony előtt, ha zárva van).',
+    caption: 'Mi ketten',
     facing: 'user',
   },
-  { id: 'siofok-virag', prompt: 'A legszebb virág, amit ma találsz.', facing: 'environment' },
-  { id: 'siofok-szobor', prompt: 'Dávid szobrot utánoz. Te vagy a fotós.', facing: 'environment' },
+  {
+    id: 'siofok-virag',
+    prompt: 'A legszebb virág, amit ma találsz.',
+    caption: 'Virág',
+    facing: 'environment',
+  },
+  {
+    id: 'siofok-szobor',
+    prompt: 'Dávid szobrot utánoz. Te vagy a fotós.',
+    caption: 'Élő szobor',
+    facing: 'environment',
+  },
 ]
 
 export interface TriviaQuestion {
@@ -275,7 +293,6 @@ export const TRIVIA_UI = {
   correct: 'Pontosan.',
   wrong: 'A helyes válasz:',
   photosTitle: 'Fotófeladatok',
-  photoSoon: 'Hamarosan itt a fotózás.',
 } as const
 
 // ---------- lunch ----------
@@ -337,8 +354,31 @@ export const KART = {
   diff: 'Eltérés',
   winnerHit: 'A győztest eltaláltad.',
   winnerMiss: 'A győztest most nem találtad el.',
-  photo: { id: 'kart-sisak', prompt: 'Sisakos közös kép.', facing: 'user' } as PhotoTaskDef,
+  photo: {
+    id: 'kart-sisak',
+    prompt: 'Sisakos közös kép.',
+    caption: 'Sisakosan',
+    facing: 'user',
+  } as PhotoTaskDef,
 } as const
+
+// HUMAN REVIEW: implementer-written photo UI copy and polaroid captions.
+export const PHOTO_UI = {
+  take: 'Fotózok',
+  retake: 'Újra',
+  saving: 'Mentés…',
+  error: 'Nem sikerült elmenteni. Próbáld újra, vagy hagyd ki.',
+  alt: 'A te fotód',
+  collageTitle: 'Fotók',
+  collageHeading: 'Szülinapi küldetés',
+  collageDate: '2026. október 10.',
+  collageFile: 'szulinapi-kuldetes.jpg',
+  collageAlt: 'A fotóidból készült kollázs',
+  downloaded: 'A kép letöltődött.',
+} as const
+
+/** Every photo task in day order (collage order). */
+export const ALL_PHOTO_TASKS: readonly PhotoTaskDef[] = [...SIOFOK_PHOTOS, KART.photo]
 
 // ---------- finale ----------
 

@@ -1,9 +1,9 @@
+import { Collage } from '../components/challenges/Collage'
 import { DayStats } from '../components/challenges/DayStats'
 import { Stamp } from '../components/ui/Stamp'
 import { FINALE, STAGES, TIMELINE } from '../content/stages'
 import { useStore } from '../state/store'
 
-// The photo collage arrives with M3.
 export function Finale() {
   const stamps = useStore((s) => s.stamps)
   const earned = STAGES.filter((s) => stamps[s.id])
@@ -26,6 +26,8 @@ export function Finale() {
       </section>
 
       <DayStats />
+
+      <Collage />
 
       <section>
         <h2 className="text-wine font-display text-3xl font-semibold">{FINALE.letterTitle}</h2>

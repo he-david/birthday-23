@@ -1,6 +1,6 @@
 import { KartResult } from '../components/challenges/KartResult'
 import { KartTips } from '../components/challenges/KartTips'
-import { PhotoPlaceholder } from '../components/challenges/PhotoPlaceholder'
+import { PhotoTask } from '../components/challenges/PhotoTask'
 import { KART } from '../content/stages'
 import { useStore } from '../state/store'
 
@@ -9,7 +9,7 @@ export function Kart() {
   return (
     <div className="flex flex-col gap-8">
       {locked ? <KartResult /> : <KartTips />}
-      <PhotoPlaceholder task={KART.photo} />
+      <PhotoTask task={KART.photo} />
     </div>
   )
 }

@@ -62,7 +62,7 @@ Tiers: **M1 = tier 1** (complete app, Milestone A), **M2 = tier 2**, **M3 = tier
 
 ## M3 · Tier 3: photos and polish
 
-- [ ] **T08** · ui · PhotoTask, polaroids, collage and share (phase 11) · UI
+- [x] **T08** · ui · PhotoTask, polaroids, collage and share (phase 11) · UI
   - `src/lib/photos.ts`: `<input type="file" accept="image/*" capture>` (`environment`, `user` on selfie tasks), downscale to 1600 px long edge, JPEG 0.82, store Blob in IndexedDB (`idb-keyval`) by task id, retake overwrites, `photos` in store. `PhotoTask` + `Polaroid` wired into `siofok` (4 tasks) and `kart` ("Sisakos közös kép").
   - `src/lib/collage.ts`: canvas collage of polaroids under the date; "Mentés és megosztás" → `navigator.share` with file, fallback download link. Added to finale.
   - Tests for downscale math and collage layout (pure parts).

@@ -57,3 +57,8 @@ Format:
 - `Wheel` (spin saved on tap, ≤2), `DayStats`, pure `lib/{wheel,finale}.ts`, Finale stamps/stats/letter/closing. Fixed T06 minors (single wait line, stale line cleared). Validator: pass. M2 complete.
 - HUMAN REVIEW: implementer copy ("Pörgess", "A rulett szerint", empty-state lines, stat labels, "Levél"); finale shows stage message and letter separately, both `TODO: Dávid`: check reads well with real text; finale 17:30 assumed.
 - follow-ups (minor): wheel labels ~11px and upside-down in lower half; reduced-motion not browser-verified (manual check / T09).
+
+## 2026-10-09 · T08 · Photo tasks, polaroids, collage · done
+- `lib/photos.ts` (downscale, IDB by task id), `lib/collage.ts` (pure layout + canvas + share/download), `PhotoTask`, `Collage`, `usePhotoUrl`. Validator: pass (download fallback only).
+- HUMAN REVIEW: implementer copy ("Fotózok", "Újra", "Fotók", captions Víztorony/Mi ketten/Virág/Élő szobor/Sisakosan, collage heading/date). `kart-sisak` uses front camera (`facing: user`); plan silent, change if wanted.
+- MANUAL iPhone: camera opens from installed PWA; share sheet saves collage to Photos; fonts in collage; photo orientation; 1600 px downscale not tested with a large image.
