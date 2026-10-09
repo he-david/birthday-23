@@ -66,14 +66,11 @@ describe('Timeline', () => {
     expect(localStorage.getItem('kuldetes-v1')).toContain('"prep"')
   })
 
-  it('Kihagyom leaves without a stamp', () => {
+  it('offers no skip button', () => {
     reset('2026-10-10T08:05:00+02:00')
     render(<App />)
     fireEvent.click(screen.getByRole('button', { name: /Felkészülés/ }))
-    fireEvent.click(screen.getByRole('button', { name: 'Kihagyom' }))
-    expect(useStore.getState().stamps.prep).toBeUndefined()
-    expect(useStore.getState().view.name).toBe('timeline')
-    expect(screen.getAllByRole('listitem')).toHaveLength(7)
+    expect(screen.queryByRole('button', { name: 'Kihagyom' })).not.toBeInTheDocument()
   })
 
   it('a locked stage view falls back to the timeline', () => {

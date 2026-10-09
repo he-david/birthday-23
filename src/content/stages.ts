@@ -26,7 +26,8 @@ export const ADMIN = {
   resetYes: 'Igen, törlöm',
 } as const
 
-export const MESSAGE_PLACEHOLDER = 'TODO: Dávid'
+/** Empty = the message block is not shown. Fill in per stage when Dávid's text is ready. */
+export const MESSAGE_PLACEHOLDER = ''
 
 export interface StageDef {
   id: StageId

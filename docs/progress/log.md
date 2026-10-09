@@ -75,3 +75,7 @@ Format:
 - follow-ups (minor): admin Előnézet picker defaults to real clock; hint rows lack space between label and text in innerText; persist has no `migrate`.
 - NEEDS iPhone: camera, share sheet to Photos, standalone offline, force-quit persistence, safe areas, motion.
 - HUMAN REVIEW (open): all `TODO: Dávid` messages + finale letter, admin PIN `0000`, finale time 17:30, kart-rule clothing lines, Víztorony facts, implementer-written Hungarian copy (see earlier entries), `kart-sisak` camera facing.
+
+## 2026-10-10 · post-T10 · Remove message placeholder and skip button
+- User request: stage message block hidden while `message` is empty (`MESSAGE_PLACEHOLDER = ''`), finale letter section hidden while empty. "Kihagyom" removed from `StageFrame`; stages can only be finished with "Kész".
+- Overrides CLAUDE.md rule "every challenge skippable": user decision. Individual challenges (photos, quiz, hints) are still not gated, but a stage can no longer be left without a stamp via a skip button; she can still go back with the chevron.

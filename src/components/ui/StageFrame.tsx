@@ -15,11 +15,10 @@ export interface StageFrameProps {
   stampedLabel: string
   onBack: () => void
   onDone: () => void
-  onSkip: () => void
   children?: ReactNode
 }
 
-/** Common frame of every open stage: back chevron, title, Dávid's message, content, Kész / Kihagyom. */
+/** Common frame of every open stage: back chevron, title, Dávid's message, content, Kész. */
 export function StageFrame(props: StageFrameProps) {
   const { id, title, message, stamped, justStamped, backLabel, stampedLabel, children } = props
   return (
@@ -50,9 +49,11 @@ export function StageFrame(props: StageFrameProps) {
         <h1 className="text-wine font-display text-4xl leading-tight font-semibold">{title}</h1>
         {stamped ? <Stamp id={id} animate={justStamped} label={stampedLabel} /> : null}
       </div>
-      <blockquote className="bg-paper-deep border-gold font-hand text-ink mt-6 rounded-r-lg border-l-4 px-4 py-4 text-2xl leading-snug">
-        {message}
-      </blockquote>
+      {message ? (
+        <blockquote className="bg-paper-deep border-gold font-hand text-ink mt-6 rounded-r-lg border-l-4 px-4 py-4 text-2xl leading-snug">
+          {message}
+        </blockquote>
+      ) : null}
       <div className="mt-6 flex-1">{children}</div>
       <div className="mt-8 flex flex-col gap-3">
         {stamped ? (
@@ -60,12 +61,7 @@ export function StageFrame(props: StageFrameProps) {
             {backLabel}
           </Button>
         ) : (
-          <>
-            <Button onClick={props.onDone}>Kész</Button>
-            <Button variant="secondary" onClick={props.onSkip}>
-              Kihagyom
-            </Button>
-          </>
+          <Button onClick={props.onDone}>Kész</Button>
         )}
       </div>
     </Page>

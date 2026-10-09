@@ -15,7 +15,7 @@ export function StageScreen({ id }: { id: StageId }) {
   const now = useNow()
   const ctx = useUnlockContext()
   const stamped = useStore((s) => Boolean(s.stamps[id]))
-  const { navigate, stamp, skip, markOpened } = useStore.getState()
+  const { navigate, stamp, markOpened } = useStore.getState()
   const [justStamped, setJustStamped] = useState(false)
   const open = isOpen(id, ctx, now)
 
@@ -42,10 +42,6 @@ export function StageScreen({ id }: { id: StageId }) {
         stamp(id, new Date(now).toISOString())
         setJustStamped(true)
         petals()
-      }}
-      onSkip={() => {
-        skip(id)
-        toTimeline()
       }}
     >
       <Content />

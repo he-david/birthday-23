@@ -29,14 +29,16 @@ export function Finale() {
 
       <Collage />
 
-      <section>
-        <h2 className="text-wine font-display text-3xl font-semibold">{FINALE.letterTitle}</h2>
-        <div className="bg-paper-deep border-gold rounded-card mt-3 border px-5 py-6 shadow-card">
-          <p className="font-hand text-ink text-3xl leading-snug whitespace-pre-line">
-            {FINALE.letter}
-          </p>
-        </div>
-      </section>
+      {FINALE.letter ? (
+        <section>
+          <h2 className="text-wine font-display text-3xl font-semibold">{FINALE.letterTitle}</h2>
+          <div className="bg-paper-deep border-gold rounded-card mt-3 border px-5 py-6 shadow-card">
+            <p className="font-hand text-ink text-3xl leading-snug whitespace-pre-line">
+              {FINALE.letter}
+            </p>
+          </div>
+        </section>
+      ) : null}
 
       <p className="text-wine font-display text-center text-4xl leading-tight font-semibold">
         {FINALE.closingLine}
