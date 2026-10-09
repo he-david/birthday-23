@@ -222,7 +222,6 @@ export const DRIVE_UI = {
   hintLabel: 'Nyom',
   noHint: 'Az első nyom hamarosan érkezik.',
   noMoreGuesses: 'Most nincs több tipp. A válasz később kiderül.',
-  waitNext: 'Több tipp most nincs. Várd meg a következő nyomot.',
   solved: 'Eltaláltad!',
   answerLabel: 'A válasz',
 } as const
@@ -297,6 +296,12 @@ export const LUNCH = {
   chopstickSeconds: 30,
   ratingTitle: 'Értékelés',
   bestBiteTitle: 'A nap falatja',
+  // HUMAN REVIEW: implementer-written UI copy, not from the plan.
+  spinLabel: 'Pörgess',
+  spinsLeft: 'Még hátralévő pörgetés:',
+  noSpinsLeft: 'Ennyi volt, a rulett döntött.',
+  resultLabel: 'A rulett szerint',
+  wheelAria: 'Sushi rulett',
 } as const
 
 // ---------- kart ----------
@@ -341,6 +346,18 @@ export const FINALE = {
   stampsTitle: 'Bélyegek',
   statsTitle: 'A nap számokban',
   shareLabel: 'Mentés és megosztás',
+  // HUMAN REVIEW: implementer-written UI copy, not from the plan.
+  noStamps: 'Ma még nem gyűjtöttél bélyeget, de a nap velem így is teljes.',
+  noStats: 'Ma nem írtunk fel számokat. Ez is rendben van.',
+  letterTitle: 'Levél',
+  hintStat: (n: number) => `${n}. nyom`,
+  triviaStat: 'Kvíz',
+  chopsticksStat: 'Pálcikával átrakott falat',
+  bestBiteStat: 'A nap falatja',
+  herLapStat: 'A te legjobb köröd',
+  davidLapStat: 'Dávid legjobb köre',
+  lapUnit: 'mp',
+  driveNames: { drive1: 'Úton', drive2: 'Újra úton' } as const,
   // HUMAN REVIEW: Dávid's letter goes here.
   letter: MESSAGE_PLACEHOLDER,
   closingLine: 'Boldog szülinapi hétvégét!',

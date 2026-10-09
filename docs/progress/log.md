@@ -52,3 +52,8 @@ Format:
 - Guess rule `tries.length < openHints`; `solvedAtHint` = hints open at correct guess.
 - HUMAN REVIEW: implementer-written copy (DRIVE_UI, TRIVIA_UI, extra KART strings, "Hamarosan itt a fotózás."); Víztorony facts (1912, Víztartály).
 - follow-ups (minor): drive1 shows two near-duplicate "wait" lines after wrong guess; stale "Nem talált" stays when next hint opens; kart result has redundant "Eredmény"/"Dobogó" headings; petal confetti stub until T09.
+
+## 2026-10-09 · T07 · Lunch wheel and finale · done
+- `Wheel` (spin saved on tap, ≤2), `DayStats`, pure `lib/{wheel,finale}.ts`, Finale stamps/stats/letter/closing. Fixed T06 minors (single wait line, stale line cleared). Validator: pass. M2 complete.
+- HUMAN REVIEW: implementer copy ("Pörgess", "A rulett szerint", empty-state lines, stat labels, "Levél"); finale shows stage message and letter separately, both `TODO: Dávid`: check reads well with real text; finale 17:30 assumed.
+- follow-ups (minor): wheel labels ~11px and upside-down in lower half; reduced-motion not browser-verified (manual check / T09).

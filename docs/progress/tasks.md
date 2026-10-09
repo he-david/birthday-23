@@ -54,7 +54,7 @@ Tiers: **M1 = tier 1** (complete app, Milestone A), **M2 = tier 2**, **M3 = tier
   - Done when: gates pass; hints open on offsets; one guess per hint; reveal on success; wrong trivia shows right answer; predictions lock on "Rajt".
   - Commit: `feat(drive): add hint guess, trivia and kart predictions`
 
-- [ ] **T07** · ui · Lunch wheel and finale (phases 9 + 10) · UI
+- [x] **T07** · ui · Lunch wheel and finale (phases 9 + 10) · UI
   - `Wheel` SVG (six segments from content, two spins max, result saved in `lunch.spins`). Chopstick timer and ratings sections render as "later" stubs or hidden until M3.
   - `finale`: Bélyegek (stamp sheet), A nap számokban (hint that solved each guess, trivia score, chopsticks, "A nap falatja", both lap times — skipped values left out; pure `finaleStats()` + tests), letter (Dávid's text placeholder in `font-hand`), closing line "Boldog szülinapi hétvégét!". Collage section absent until M3.
   - Done when: gates pass; wheel ≤ 2 spins and result persists; finale letter opens; skipped values omitted.

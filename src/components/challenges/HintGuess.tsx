@@ -18,7 +18,9 @@ export function HintGuess({ drive }: { drive: DriveId }) {
   const openHints = openHintCount(drive, ctx, now)
   const outcome = driveOutcome(solvedAtHint, isOpen(DRIVE_NEXT_STAGE[drive], ctx, now))
   const left = guessesLeft(openHints, tries.length)
-  const lastWrong = tries.length > 0 && solvedAtHint === undefined
+  // One line only, and only while no new hint has opened since the last guess.
+  const waitLine =
+    openHints > 0 && left === 0 ? (openHints < 3 ? def.wrongGuess : DRIVE_UI.noMoreGuesses) : null
 
   const guess = (option: string) => {
     if (left === 0 || outcome !== 'playing') return
@@ -63,14 +65,9 @@ export function HintGuess({ drive }: { drive: DriveId }) {
               />
             ))}
           </div>
-          {lastWrong ? (
+          {waitLine ? (
             <p role="status" className="font-body text-wine mt-4 text-base font-bold">
-              {def.wrongGuess}
-            </p>
-          ) : null}
-          {openHints > 0 && left === 0 ? (
-            <p className="font-body text-ink mt-2 text-base">
-              {openHints < 3 ? DRIVE_UI.waitNext : DRIVE_UI.noMoreGuesses}
+              {waitLine}
             </p>
           ) : null}
         </div>
