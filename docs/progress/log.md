@@ -34,3 +34,9 @@ Format:
 - tests/setup.ts shims localStorage (Node 25 breaks jsdom's).
 - HUMAN REVIEW: implementer-written copy "Szülinapi küldetés", "Az első boríték", locked-card label "Lezárt boríték" (visible on locked cards).
 - follow-ups (minor): confirm safe-area padding includes env(); unlock animation + confetti in T09; admin view falls back to timeline until T04.
+
+## 2026-10-09 · T04 · Admin panel and preview mode · done
+- SealTrigger (5 taps/3 s), PinPad, Admin screen, PreviewBanner, helpers in `src/lib/{tapCounter,pin,clock,photos}.ts`. Validator: pass.
+- `clearAllPhotos` clears default idb-keyval store: T08 must use same store or update it.
+- Admin copy written by implementer (ADMIN block in stages.ts): review.
+- Minor: after "Minden törlése" app shows Welcome (correct when nothing open); admin lists locked titles (Dávid-only).

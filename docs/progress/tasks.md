@@ -35,7 +35,7 @@ Tiers: **M1 = tier 1** (complete app, Milestone A), **M2 = tier 2**, **M3 = tier
   - Done when: gates pass; seven envelopes render; each stage can be stamped; state survives reload; validator checks spoiler hygiene at several simulated times.
   - Commit: `feat(ui): add ui kit, welcome, install gate and timeline`
 
-- [ ] **T04** · ui · Admin panel and preview mode (phase 5) · UI
+- [x] **T04** · ui · Admin panel and preview mode (phase 5) · UI
   - Wax seal in the header: 5 taps within 3 s → PIN pad (4 digits, from `content/stages.ts`); DEV opens without PIN. Actions: Következő megnyitása (adds next locked stage to `forcedUnlocked`, exactly one), −15 / +15 perc (shows current shift and resulting times), Előnézet (date-time picker → `simulatedNow`, fixed "ELŐNÉZET" banner on every screen while active), Valós idő, Minden törlése (confirmation; clears store and photos via idb-keyval).
   - Done when: gates pass; simulating any time opens the right stages; banner shows; +15 moves countdowns together.
   - Commit: `feat(admin): add pin-protected admin panel and preview mode`

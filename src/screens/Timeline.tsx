@@ -1,4 +1,5 @@
 import { STAGES, TIMELINE } from '../content/stages'
+import { SealTrigger } from '../components/admin/SealTrigger'
 import { EnvelopeCard } from '../components/ui/EnvelopeCard'
 import { Page } from '../components/ui/Page'
 import { useNow } from '../hooks/useNow'
@@ -15,9 +16,12 @@ export function Timeline() {
 
   return (
     <Page>
-      <h1 className="font-display text-wine pb-6 text-center text-4xl font-semibold">
-        {TIMELINE.heading}
-      </h1>
+      <header className="flex flex-col items-center pb-6">
+        <SealTrigger />
+        <h1 className="font-display text-wine text-center text-4xl font-semibold">
+          {TIMELINE.heading}
+        </h1>
+      </header>
       <ol className="flex flex-col gap-4">
         {STAGES.map((stage) => (
           <li key={stage.id}>

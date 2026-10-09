@@ -5,6 +5,27 @@ import type { DriveId, StageId } from '../state/types'
 // HUMAN REVIEW: placeholder PIN, Dávid must choose the real one.
 export const ADMIN_PIN = '0000'
 
+export const ADMIN = {
+  title: 'Admin',
+  pinPrompt: 'Add meg a PIN-kódot',
+  pinWrong: 'Hibás PIN',
+  cancel: 'Mégse',
+  back: 'Vissza',
+  forceNext: 'Következő megnyitása',
+  forceNone: 'Minden boríték nyitva',
+  shiftHeading: 'Időeltolás',
+  shiftNow: 'Jelenlegi eltolás',
+  shiftMinus: '−15 perc',
+  shiftPlus: '+15 perc',
+  previewHeading: 'Előnézet',
+  previewApply: 'Előnézet indítása',
+  realTime: 'Valós idő',
+  previewBanner: 'ELŐNÉZET',
+  resetAll: 'Minden törlése',
+  resetConfirm: 'Biztos? Minden haladás és fotó törlődik.',
+  resetYes: 'Igen, törlöm',
+} as const
+
 export const MESSAGE_PLACEHOLDER = 'TODO: Dávid'
 
 export interface StageDef {
